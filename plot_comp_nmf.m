@@ -68,6 +68,7 @@ for i = 1:ndim
     fig.PaperPosition = [0 0 50 12];
     
     %plot the first and last 30 items
+    nit = 30;
     [hlc,hlidx] = sort(comp,'descend');
     for f = 1:nit
             subplot(4,ceil(nit/2),f)
@@ -76,8 +77,8 @@ for i = 1:ndim
             title(sprintf('%.3f',hlc(f)))
     end
     for f = 1:nit
-            subplot(4,ceil(nit/2),nit+1+f)
-            imshow(frames{hlidx(end-f+1)})
+            subplot(4,ceil(nit/2),nit+f)
+            imshow(frames{hlidx(end-f)})
             if f==1, ylabel('Low'); end
             title(sprintf('%.3f',hlc(end-f+1)))
     end
