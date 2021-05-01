@@ -41,7 +41,7 @@ addpath(genpath(fullfile(basepath,'Scripts/meg-mvpa/mvpa-for-meg/'))); mvpa_setu
 savepath = fullfile(basepath,'results','nmf',sprintf('exp%d',dataset));
 
 % paths to behavioral RDM files
-datapath = fullfile(basepath,'data',sprintf('exp%d',dataset));
+datapath = fullfile(basepath,'data','nmf',sprintf('exp%d',dataset));
 
 % set seed
 rng(10)
@@ -114,7 +114,7 @@ else
 end
 
 results = run_subsets_selective_nmf(rdm, cfg);
-savefile = 'nmf_subsets_selective_holdout.mat';
+savefile = 'nmf_subsets_selective.mat';
 save(fullfile(basepath,savefile),'-v7.3', 'results','cfg')
 
 %% dimensionality analyses for Experiment 1
