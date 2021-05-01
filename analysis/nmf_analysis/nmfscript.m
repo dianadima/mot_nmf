@@ -1,8 +1,5 @@
-%Run Sparse NMF on behavioral MA similarity matrix with cross-validation
-
-%run_holdout_nested_nmf: nested cross-validation to select best combination of sparsity & number of dimensions
-%run_subsets_nmf: subsamples n stimuli x k iterations and runs k-fold CV on each subset to select best num dimensions and sparsity for each subset
-
+% Run cross-validaed Sparse NMF on behavioral similarity matrix.
+%
 % wrappers:  run_holdout_nested_nmf: holds out ~10% of data and runs several iterations of nested cross-validation on training data
 %     
 %   - for subsampling analyses:
