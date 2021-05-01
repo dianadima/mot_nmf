@@ -1,22 +1,24 @@
 # mot_nmf
-Code for running NMF on the Moments in Time RDM based on multiple arrangement of videos.
+Run cross-validated sparse non-negative matrix factorization to investigate the underlying dimensions in a behavioral similarity matrix.
 
-Main analysis: `nmfscript.m`
+__Main analysis:__ `nmfscript.m`
 
-* `run_holdout_nmf`: holds out 1 observation per stimulus pair for testing, runs internal k-fold CV on training set to select best num dimensions and sparsity
-* `run_subsets_nmf`: subsamples n stimuli x k iterations and runs k-fold CV on each subset to select best num dimensions and sparsity for each subset
+__subsampling analyses:__
 
-functions: 
+* `run_subsets_nmf`: draw random samples from the dataset to check how dimensionality changes with dataset sizse
+* `run_subsets_categ_nmf`: remove action categories from the dataset to check how dimensionality changes with the number of actions in the dataset
+* `run_subsets_selective_nmf`: selectively removes certain stimulus categories to check how well NMF components generalize 
 
-* `run_kfold_nmf`: performs cross-validation (separately for each pair of stimuli)
-* `run_ndim_nmf`: loops through different numbers of dimensions to run NMF
-* `run_nmf`: runs NMF on selected fold looping through specified sparsity parameters for W and H
+__functions:__
 
-plotting:  
-* `plot_holdout_nmf`: plot the best correlation achieved on training & test set for the best sparsity parameters against number of dimensions
-* `plot_subsets_nmf`: plot the number of dimensions achieving the gradient minimum (training & test correlation) against stimulus subset size
-* `plot_comp_nmf`: plot the video frames corresponding to highest/lowest W weights for each dimension
-* `plot_parameters_nmf`: for each number of dimensions, plot the training & test correlation obtained with different sparsity parameters for W and H
+* `run_holdout_nested_nmf`: holds out ~10% of data; runs several iterations of nested cross-validation on training data to find k (num components) and s (sparsity); retrains on whole training set to get number of components
+* `run_kfold_nested_nmf`: runs outer cross-validation to select best k
+* `run_kfold_nmf`: runs inner cross-validation to select best s
+* `run_ndim_nmf`: loops through different k (numbers of dimensions) to run NMF
+* `run_nmf`: loops through different s (sparsity parameters) to run NMF using specified k
 
-dependencies: 
-* `sim_impute`: impute NaN values in a similarity matrix using ultrametric method
+__plotting:__  
+
+* `plot_cv_nmf`: plot cross-validation performance
+* `plot_comp_nmf`: plot frames from the highest/lowest weighted videos corresponding to each component
+% `plot_subsets_nmf`: plot the optimal number of dimensions against stimulus subset size
