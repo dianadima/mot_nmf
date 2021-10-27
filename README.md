@@ -21,4 +21,4 @@ __plotting:__
 
 * `plot_cv_nmf`: plot cross-validation performance
 * `plot_comp_nmf`: plot frames from the highest/lowest weighted videos corresponding to each component
-% `plot_subsets_nmf`: plot the optimal number of dimensions against stimulus subset size
+* `plot_subsets_nmf`: plot the optimal number of dimensions against stimulus subset size
