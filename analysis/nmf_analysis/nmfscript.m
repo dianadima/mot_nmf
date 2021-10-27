@@ -31,9 +31,6 @@ addpath(genpath(fullfile(basepath,'analysis')));
 % select dataset number
 dataset = 1; 
 
-% libraries & dependencies
-addpath(genpath(fullfile(basepath,'Scripts/meg-mvpa/mvpa-for-meg/'))); mvpa_setup %for plotting
-
 % results path
 savepath = fullfile(basepath,'results','nmf',sprintf('exp%d',dataset));
 
@@ -75,7 +72,7 @@ if dataset==1
     cfg.dimrange = [2:50 60:10:150];
 else
     cfg.cvscheme = 'subjectwise';
-    cfg.dimrange = 2:65;
+    cfg.dimrange = 1:65;
 end
 
 %% run NMF with nested cross-validation
@@ -112,7 +109,7 @@ end
 
 results = run_subsets_selective_nmf(rdm, cfg);
 savefile = 'nmf_subsets_selective.mat';
-save(fullfile(basepath,savefile),'-v7.3', 'results','cfg')
+save(fullfile(savepath,savefile),'-v7.3', 'results','cfg')
 
 %% dimensionality analyses for Experiment 1
 

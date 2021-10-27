@@ -62,7 +62,7 @@ elseif strcmp(cfg.cvscheme,'subjectwise')
     
 end
 
-
+num_holdout_nan = 0;
 %impute missing values from holdout data 
 if any(isnan(rdm_hold(:))), num_holdout_nan = sum(isnan(rdm_hold(:)))/2; fprintf('\nImputing...\n'); rdm_hold = sim_impute(rdm_hold,'ultrametric',1); end
 

@@ -8,3 +8,4 @@ results/
 */.DS_Store
 */*/.DS_Store
 */*/*/.DS_Store
+analysis/pca_analysis

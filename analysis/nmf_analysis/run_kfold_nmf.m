@@ -94,6 +94,7 @@ for kf = 1:k
     fprintf('\nRunning iteration %d out of %d\n', kf, k)
     
     %impute any missing values for each RDM - only for Exp 1
+    num_nans1 = 0; num_nans2 = 0;
     if any(isnan(rdm1(:))) 
         fprintf('\n %.3f NaNs found in training rdm\n', sum(isnan(rdm1(:)))/numel(rdm1)); 
         num_nans1 = sum(isnan(rdm1(:)))/2; 

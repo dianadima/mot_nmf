@@ -85,7 +85,10 @@ for i = 1:ndim
             imshow(frames{hlidx(end-f+1)})
             %if f==1, ylabel('Low'); end
     end
-    print(fig,'-r300','-dtiff',sprintf(fullfile(savepath,'dim%d.png'),i))
+    
+    if ~isempty(savepath)
+        print(fig,'-r300','-dtiff',sprintf(fullfile(savepath,'dim%d.png'),i))
+    end
     
     % save the filenames of top and bottom videos for each dimension
     if ~isempty(stimlist)

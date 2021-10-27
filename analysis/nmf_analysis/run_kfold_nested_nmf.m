@@ -49,6 +49,8 @@ elseif strcmp(cvscheme,'subjectwise')
 end
 
 ndim = numel(dimrange);
+num_holdout_nan = 0;
+num_train_nan = 0;
 
 %impute missing values from holdout data 
 if any(isnan(rdm_hold(:))), num_holdout_nan = sum(isnan(rdm_hold(:)))/2; rdm_hold = sim_impute(rdm_hold,'ultrametric',1); end
