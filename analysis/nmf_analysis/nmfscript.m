@@ -85,7 +85,7 @@ save(fullfile(savepath,savefile),'-v7.3', 'results','cfg')
 
 %components
 dim = plot_comp_nmf(results,framearray,savepath,stimlist,'top8');
-save(fullfile(savepath,savefile),'-append','dim');
+%save(fullfile(savepath,savefile),'-append','dim');
 
 %cross-validation performance
 plot_cv_nmf(results,cfg)
